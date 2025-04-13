@@ -50,9 +50,8 @@ def owning_vs_renting(home_price, appreciation, discount_rate, years):
         npv_costs += yearly_cost / (1 + discount_rate)**t
     future_home_value = home_price * (1 + appreciation)**years
     net_sale_value = future_home_value * (1 - transaction_cost)
-    net_gain = net_sale_value - home_price
-    npv_net_gain = net_gain / (1 + discount_rate)**years
-    return npv_costs - npv_net_gain
+    npv_net_sale_value = net_sale_value / (1 + discount_rate)**years
+    return npv_costs - npv_net_sale_value
 
 rent_npv = npv_of_rent(annual_rent, rent_increase, investment_return, holding_period)
 own_npv = owning_vs_renting(home_price, home_appreciation, investment_return, holding_period)
